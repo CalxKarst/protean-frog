@@ -15,6 +15,7 @@ def main():
   ltuid = int(os.getenv("LT_UID"))
   ltoken = os.getenv("LT_TOKEN")
   client = gs.Client({"ltuid": ltuid, "ltoken": ltoken})
+  client.default_game = gs.Game.GENSHIN
   asyncio.run(claimDaily(client))
 
 if __name__ == "__main__":
