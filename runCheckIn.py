@@ -17,9 +17,8 @@ def main():
   emailAddr = os.getenv("EMAIL_ADDR")
   passWord = os.getenv("PASSWORD")
   client = gs.Client()
-  cookies = asyncio.run(client.login_with_password(emailAddr,passWord))
-  print(dict(cookies))
-  client.set_cookies(cookies)
+  cookies = dict(asyncio.run(client.login_with_password(emailAddr,passWord)))
+  client.set_cookies(ltuid=cookies["ltuid_v2"],ltoken=cookies["ltoken_v2"])
   client.default_game = gs.Game.GENSHIN
   asyncio.run(claimDaily(client))
 
