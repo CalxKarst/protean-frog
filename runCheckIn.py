@@ -12,11 +12,13 @@ async def claimDaily(client) :
   return
 
 def main():
-  ltuid = int(os.getenv("LT_UID"))
-  ltoken = os.getenv("LT_TOKEN")
+  #ltuid = int(os.getenv("LT_UID"))
+  #ltoken = os.getenv("LT_TOKEN")
+  emailAddr = os.getenv("EMAIL_ADDR")
+  passWord = os.getenv("PASSWORD")
   client = gs.Client()
-  print(len(str(ltuid)), len(ltoken))
-  client.set_cookies(ltuid=ltuid, ltoken=ltoken)
+  cookies = client.login_with_password(emailAddr,passWord)
+  client.set_cookies(cookies)
   client.default_game = gs.Game.GENSHIN
   asyncio.run(claimDaily(client))
 
