@@ -4,8 +4,9 @@ import asyncio, os
 async def claimDaily(client) :
   try: 
     reward = await client.claim_daily_reward()
-  except :
+  except Exception as e:
     print("Daily reward already claimed")
+    print(e)
   else:
     print(f"Claimed {reward.amount}x {reward.name}")
   return
