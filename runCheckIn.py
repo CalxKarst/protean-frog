@@ -18,7 +18,7 @@ def main():
   passWord = os.getenv("PASSWORD")
   client = gs.Client()
   cookies = dict(asyncio.run(client.login_with_password(emailAddr,passWord)))
-  cookies = genshin.utility.get_browser_cookies()
+  cookies = gs.utility.get_browser_cookies()
   #client.set_cookies(ltuid=cookies["ltuid_v2"],ltoken=cookies["ltoken_v2"])
   print(cookies)
   client.set_cookies(cookies)
