@@ -27,4 +27,6 @@ jobs:
       env:
         LT_UID: ${{ secrets.LT_UID }}
         LT_TOKEN: ${{ secrets.LT_TOKEN }}
+        EMAIL_ADDR: ${{ secrets.EMAIL_ADDR}}
+        PASSWORD: ${{ secrets.PASSWORD }}
       run: python runCheckIn.py
