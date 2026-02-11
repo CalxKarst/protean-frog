@@ -18,7 +18,7 @@ async def main():
         "ltoken_v2": os.getenv("LT_TOKEN"),
         "ltuid_v2": os.getenv("LT_UID")
         }
-    print(dict(cookies))
+    #print(dict(cookies))
     client.set_cookies(dict(cookies))
     client.default_game = gs.Game.GENSHIN
 
