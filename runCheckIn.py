@@ -12,12 +12,13 @@ async def claimDaily(client):
         print(f"Claimed {reward.amount}x {reward.name}")
 
 async def main():
-    emailAddr = os.getenv("EMAIL_ADDR")
-    passWord = os.getenv("PASSWORD")
 
     client = gs.Client()
-    cookies = await client.login_with_password(emailAddr, passWord)
-
+    cookies = {
+        "ltoken_v2": os.getenv("LT_TOKEN"),
+        "ltuid_v2": os.getenv("LT_UID")
+        }
+    print(dict(cookies))
     client.set_cookies(dict(cookies))
     client.default_game = gs.Game.GENSHIN
 
